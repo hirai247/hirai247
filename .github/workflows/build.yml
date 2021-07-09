@@ -19,6 +19,11 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          http_proxt: ${{ secrets.HTTP_PROXY }}
+          HTTP_PROXY: ${{ secrets.HTTP_PROXY }}
+          https_proxt: ${{ secrets.HTTPS_PROXY }}
+          HTTPS_PROXY: ${{ secrets.HTTPS_PROXY }}
+          NO_PROXY: ${{ secrets.NO_PROXY }}
         run: |
           sh -x /home/autotune/SonarQube/before_scripts.sh
           sh -x /home/autotune/SonarQube/run_autotune.sh 
