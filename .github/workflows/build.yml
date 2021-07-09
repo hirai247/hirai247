@@ -5,15 +5,13 @@ on:
       - main # or the name of your main branch
 
 jobs:
-  build:
+  sonarcloud:
     name: Build
     runs-on: self-hosted
     steps:
       - name: run multi command
-        run: |  # <- ここがミソ
-          git config --global user.email "city1@outlook.ccom"
-          git config --global user.name "hirai247"
-          git add .
-          git commit -m 'modify manifests'
-          git status
+        uses: sonarsource/sonarqube-scan-action@master
+        with:
+          args: >
+            -Dsonar.projectKey=github -Dsonar.sources=. -Dsonar.host.url=http://10.125.69.99:9000 -Dsonar.login=2e1543bdcd2544f72f5575c6170d1478dea4cf5b
 
