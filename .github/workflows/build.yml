@@ -11,7 +11,7 @@ jobs:
     container:
       image: sonarsource/sonar-scanner-cli:latest
       volumes: 
-       - ${{ github.workspace }}:/workspace
+       - /github/workspace:/workspace
     steps:
       - name: run multi command
         env:
