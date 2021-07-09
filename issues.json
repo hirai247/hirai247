@@ -24,9 +24,7 @@
         "filePath": "test.c",
         "textRange": {
           "startLine": 8,
-          "endLine": 9,
-          "startColumn": 0,
-          "endColumn": 21
+          "endLine": 8
         },
         "effortMinutes": 5
       }
