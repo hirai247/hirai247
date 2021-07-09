@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main # or the name of your main branch
-
 jobs:
   sonarcloud:
     name: Build
