@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main # or the name of your main branch
+      
 jobs:
   sonarcloud:
     name: Build
@@ -10,7 +11,7 @@ jobs:
     container:
       image: sonarsource/sonar-scanner-cli:latest
       volumes: 
-       - gitlabRunner_autotune:/
+       - autotune_gitlabRunner_autotune:/home/autotune
     steps:
       - uses: actions/checkout@v2
         with:
@@ -25,8 +26,8 @@ jobs:
           HTTPS_PROXY: ${{ secrets.HTTPS_PROXY }}
           NO_PROXY: ${{ secrets.NO_PROXY }}
         run: |
-          sh -x /SonarQube/before_scripts.sh
-          sh -x /SonarQube/run_autotune.sh 
+          sh -x /home/autotune/SonarQube/before_scripts.sh
+          sh -x /home/autotune/SonarQube/run_autotune.sh 
           sonar-scanner -Dsonar.projectKey=github -Dsonar.sources=. -Dsonar.host.url=http://10.125.69.99:9000 -Dsonar.login=admin -Dsonar.password=AutoTune
-          sh -x /SonarQube/after_scripts.sh
+          sh -x /home/autotune/SonarQube/after_scripts.sh
 
