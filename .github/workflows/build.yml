@@ -28,6 +28,7 @@ jobs:
           PYTHONPATH: /home/autotune/lib.linux-x86_64-3.8
         run: |
           export PATH=/home/autotune/lib.linux-x86_64-3.8:$PATH
+          echo $PATH
           sh -x /home/autotune/SonarQube/before_scripts.sh
           sh -x /home/autotune/SonarQube/run_autotune.sh 
           sonar-scanner -Dsonar.projectKey=github -Dsonar.sources=. -Dsonar.host.url=http://10.125.69.99:9000 -Dsonar.login=admin -Dsonar.password=AutoTune
