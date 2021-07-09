@@ -16,6 +16,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: |
+          pwd
           ls
+          ls ../
           sonar-scanner -Dsonar.projectKey=github -Dsonar.sources=. -Dsonar.host.url=http://10.125.69.99:9000 -Dsonar.login=admin -Dsonar.password=AutoTune
 
