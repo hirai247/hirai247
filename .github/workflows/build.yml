@@ -8,13 +8,13 @@ jobs:
   sonarcloud:
     name: Build
     runs-on: self-hosted
+    container:
+      image: sonarsource/sonar-scanner-cli:latest
     steps:
       - name: run multi command
-        uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        with:
-          args: >
-            -Dsonar.projectKey=github -Dsonar.sources=. -Dsonar.host.url=http://10.125.69.99:9000 -Dsonar.login=2e1543bdcd2544f72f5575c6170d1478dea4cf5b
+        run: |
+          sonar-scanner -Dsonar.projectKey=github -Dsonar.sources=. -Dsonar.host.url=http://10.125.69.99:9000 -Dsonar.login=2e1543bdcd2544f72f5575c6170d1478dea4cf5b
 
