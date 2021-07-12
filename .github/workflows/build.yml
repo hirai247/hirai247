@@ -9,7 +9,7 @@ jobs:
     name: Build
     runs-on: self-hosted
     container:
-      image: sonarsource/sonar-scanner-cli:latest
+      image: sonarsource/sonar-scanner-cli:4
       volumes: 
        - autotune_gitlabRunner_autotune:/home/autotune
     steps:
@@ -26,6 +26,7 @@ jobs:
           HTTPS_PROXY: ${{ secrets.HTTPS_PROXY }}
           NO_PROXY: ${{ secrets.NO_PROXY }}
         run: |
+          cat /etc/os-release
           sh -x /home/autotune/SonarQube/before_scripts.sh
           python3 /home/autotune/lib.linux-x86_64-3.8/test.py
           sh -x /home/autotune/SonarQube/run_autotune.sh 
