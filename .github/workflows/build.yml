@@ -26,6 +26,7 @@ jobs:
           HTTPS_PROXY: ${{ secrets.HTTPS_PROXY }}
           NO_PROXY: ${{ secrets.NO_PROXY }}
         run: |
+          python3 --version
           python3 /home/autotune/lib.linux-x86_64-3.8/test.py
           sh -x /home/autotune/SonarQube/before_scripts.sh
           sh -x /home/autotune/SonarQube/run_autotune.sh 
