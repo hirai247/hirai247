@@ -19,6 +19,8 @@ jobs:
       - name: run multi command
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_USER: ${{ secrets.SONAR_USER }}
+          SONAR_PASSWORD: ${{ secrets.SONAR_PASSWORD }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           http_proxt: ${{ secrets.HTTP_PROXY }}
           HTTP_PROXY: ${{ secrets.HTTP_PROXY }}
