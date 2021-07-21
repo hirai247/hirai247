@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 typedef struct arc_tag {
     struct arc_tag *nextout;
     struct arc_tag *nextin;
